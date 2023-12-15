@@ -1,6 +1,7 @@
 import 'package:flavor/flavor.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/starter.dart';
 import 'package:to_do_app/app/routes/app_router.dart';
 
@@ -23,6 +24,8 @@ class _ToDoAppState extends State<ToDoApp> {
         final isTr = box.get('isTr', defaultValue: false);
         return FlavorBanner(
           child: MaterialApp.router(
+              supportedLocales: L10n.supportedLocales,
+              localizationsDelegates: L10n.localizationsDelegates,
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 brightness: isDark ? Brightness.dark : Brightness.light,
