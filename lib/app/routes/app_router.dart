@@ -21,6 +21,7 @@ class AppRouter extends $AppRouter {
   @override
   final List<AutoRoute> routes = [
         AutoRoute(page: SplashViewRoute.page, initial: true),
+        AutoRoute(page: RegistrationViewRoute.page),
         AutoRoute(page: HomeViewRoute.page)
       ];
 }
