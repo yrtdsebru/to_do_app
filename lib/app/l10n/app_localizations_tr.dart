@@ -8,6 +8,9 @@ class L10nTr extends L10n {
   String get appName => 'To Do App';
 
   @override
+  String get splashLogo => 'Catty ᓚᘏᗢ';
+
+  @override
   String get langEng => 'İngilizce';
 
   @override
@@ -39,4 +42,22 @@ class L10nTr extends L10n {
 
   @override
   String get create => 'Oluştur';
+
+  @override
+  String get registration => 'Kayıt';
+
+  @override
+  String get email => 'Mail';
+
+  @override
+  String get password => 'Şifre';
+
+  @override
+  String get enterEmail => 'Mail adresinizi giriniz';
+
+  @override
+  String get enterPassword => 'Şifrenizi giriniz';
+
+  @override
+  String get regAndSignIn => 'Kayıt ol ve Giriş yap';
 }

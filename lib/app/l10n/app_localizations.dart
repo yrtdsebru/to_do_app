@@ -99,6 +99,12 @@ abstract class L10n {
   /// **'To Do App'**
   String get appName;
 
+  /// No description provided for @splashLogo.
+  ///
+  /// In en, this message translates to:
+  /// **'Catty ᓚᘏᗢ'**
+  String get splashLogo;
+
   /// No description provided for @langEng.
   ///
   /// In en, this message translates to:
@@ -164,6 +170,42 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Create'**
   String get create;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @enterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email'**
+  String get enterEmail;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get enterPassword;
+
+  /// No description provided for @regAndSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Register and Auto Sign In'**
+  String get regAndSignIn;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

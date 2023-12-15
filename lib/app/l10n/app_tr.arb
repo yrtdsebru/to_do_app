@@ -1,5 +1,6 @@
 {
     "appName": "To Do App",
+    "splashLogo": "Catty ᓚᘏᗢ",
     "langEng": "İngilizce",
     "langTr": "Türkçe",
     "yes": "Evet",
@@ -10,5 +11,11 @@
     "add": "Ekle",
     "update": "Güncelle",
     "delete": "Sil",
-    "create": "Oluştur"
+    "create": "Oluştur",
+    "registration": "Kayıt",
+    "email": "Mail",
+    "password": "Şifre",
+    "enterEmail": "Mail adresinizi giriniz",
+    "enterPassword": "Şifrenizi giriniz",
+    "regAndSignIn": "Kayıt ol ve Giriş yap"
 }

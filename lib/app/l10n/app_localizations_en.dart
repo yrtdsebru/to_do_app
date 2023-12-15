@@ -8,6 +8,9 @@ class L10nEn extends L10n {
   String get appName => 'To Do App';
 
   @override
+  String get splashLogo => 'Catty ᓚᘏᗢ';
+
+  @override
   String get langEng => 'English';
 
   @override
@@ -39,4 +42,22 @@ class L10nEn extends L10n {
 
   @override
   String get create => 'Create';
+
+  @override
+  String get registration => 'Registration';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get enterEmail => 'Enter your email';
+
+  @override
+  String get enterPassword => 'Enter your password';
+
+  @override
+  String get regAndSignIn => 'Register and Auto Sign In';
 }
