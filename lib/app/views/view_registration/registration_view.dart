@@ -36,8 +36,27 @@ class _RegistrationViewState extends State<RegistrationView> {
           headers: {"Content-Type": "application/json"},
           body: jsonEncode(reqBody));
 
-      print("Post Registration: $response");
-      print("Post Request: $reqBody");
+      var jsonResponse = jsonDecode(response.body);
+
+      print(jsonResponse['status']);
+
+      if(jsonResponse['status']) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Registration Successful"),
+          ),
+        );
+        context.router.push(const HomeViewRoute());
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Registration Failed"),
+          ),
+        );
+        print("Something went wrong");
+      }
+      // print("Post Registration: $response");
+      // print("Post Request: $reqBody");
     } else {
       setState(() {
         isValid = false;
