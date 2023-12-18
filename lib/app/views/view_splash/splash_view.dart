@@ -12,21 +12,30 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(
-        const Duration(seconds: 5),
+    Timer(const Duration(seconds: 5),
         () => context.router.push(const RegistrationViewRoute()));
-            
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: Center(
-          child: Text(
-        L10n.of(context)!.splashLogo,
-        style: const TextStyle(
-          fontSize: 50,
-          fontWeight: FontWeight.w900,
-          color: AppColors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              L10n.of(context)!.splashLogo,
+              style: const TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.w900,
+                color: AppColors.white,
+              ),
+            ),
+            const SizedBox(height: 30),
+            const CircularProgressIndicator(
+              color: AppColors.white,
+            ),
+          ],
         ),
-      )),
+      ),
     );
   }
 }
