@@ -14,8 +14,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Timer(
         const Duration(seconds: 5),
-        () => AutoRouter.of(context)
-            .replace(const RegistrationViewRoute()));
+        () => context.router.push(const RegistrationViewRoute()));
             
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
