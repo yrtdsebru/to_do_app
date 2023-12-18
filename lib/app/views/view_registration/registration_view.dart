@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/app/routes/app_router.gr.dart';
+import 'package:http/http.dart' as http;
+import 'package:to_do_app/core/constants/config.dart';
 
 @RoutePage()
 class RegistrationView extends StatefulWidget {
@@ -15,6 +19,36 @@ class _RegistrationViewState extends State<RegistrationView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isPasswordVisible = false;
+  bool isValid = false;
+
+  void isButtonEnabled() async {
+    if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      setState(() {
+        isValid = true;
+      });
+
+      var reqBody = {
+        "email": emailController.text,
+        "password": passwordController.text
+      };
+
+      var response = await http.post(Uri.parse(registration),
+          headers: {"Content-Type": "application/json"},
+          body: jsonEncode(reqBody));
+
+      print("Post Registration: $response");
+      print("Post Request: $reqBody");
+    } else {
+      setState(() {
+        isValid = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please enter email and password"),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +102,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                   minimumSize: const Size(300, 50),
                 ),
                 onPressed: () {
-                  AutoRouter.of(context).replace(const HomeViewRoute());
+                  isButtonEnabled();
                 },
                 child: Text(L10n.of(context)!.regAndSignIn,
                     style: const TextStyle(color: Colors.white))),
