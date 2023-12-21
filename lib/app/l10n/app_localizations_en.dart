@@ -59,5 +59,14 @@ class L10nEn extends L10n {
   String get enterPassword => 'Enter your password';
 
   @override
-  String get regAndSignIn => 'Register and Auto Sign In';
+  String get alreadyHaveAccount => 'Already have an account?';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account?';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get signIn => 'Sign In';
 }

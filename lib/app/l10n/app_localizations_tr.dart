@@ -59,5 +59,14 @@ class L10nTr extends L10n {
   String get enterPassword => 'Şifrenizi giriniz';
 
   @override
-  String get regAndSignIn => 'Kayıt ol ve Giriş yap';
+  String get alreadyHaveAccount => 'Zaten hesabınız var mı?';
+
+  @override
+  String get dontHaveAccount => 'Hesabınız yok mu?';
+
+  @override
+  String get register => 'Kayıt Ol';
+
+  @override
+  String get signIn => 'Giriş Yap';
 }

@@ -17,5 +17,8 @@
     "password": "Password",
     "enterEmail": "Enter your email",
     "enterPassword": "Enter your password",
-    "regAndSignIn": "Register and Auto Sign In"
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "register":"Register",
+    "signIn": "Sign In"
 }

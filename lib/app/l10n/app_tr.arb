@@ -17,5 +17,8 @@
     "password": "Şifre",
     "enterEmail": "Mail adresinizi giriniz",
     "enterPassword": "Şifrenizi giriniz",
-    "regAndSignIn": "Kayıt ol ve Giriş yap"
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "dontHaveAccount": "Hesabınız yok mu?",
+    "register":"Kayıt Ol",
+    "signIn": "Giriş Yap"
 }

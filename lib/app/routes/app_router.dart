@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 
 import 'app_router.gr.dart';
 
+
+// AutoRouterConfig sınıfını kullanarak rota isimlerindeki "View" kelimesini kaldırıyoruz.
 @AutoRouterConfig(replaceInRouteName: "View")
 
 class AppRouter extends $AppRouter {
 
+  // Rotalar arasındaki geçişleri özelleştiriyoruz.
   @override
   RouteType get routeType => RouteType.custom(
         durationInMilliseconds: 300,
@@ -18,10 +21,12 @@ class AppRouter extends $AppRouter {
         },
   );
 
+  // Uygulamanın rotalarını tanımlıyoruz.
   @override
   final List<AutoRoute> routes = [
         AutoRoute(page: SplashViewRoute.page, initial: true),
         AutoRoute(page: RegistrationViewRoute.page),
-        AutoRoute(page: HomeViewRoute.page)
+        AutoRoute(page: SignInViewRoute.page),
+        AutoRoute(page: HomeViewRoute.page),
       ];
 }

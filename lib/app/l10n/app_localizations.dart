@@ -201,11 +201,29 @@ abstract class L10n {
   /// **'Enter your password'**
   String get enterPassword;
 
-  /// No description provided for @regAndSignIn.
+  /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Register and Auto Sign In'**
-  String get regAndSignIn;
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dontHaveAccount;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
