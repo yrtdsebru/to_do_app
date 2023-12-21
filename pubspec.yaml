@@ -30,6 +30,9 @@ dependencies:
   # http for API
   http: ^1.1.2
 
+  #Bu kütüphane Json Web Token’ları çözmemize yardımcı olur, ayrıca bir JWT’nin zaten süresi dolmuş olup olmadığını da öğrenebiliriz.
+  jwt_decoder: ^2.0.1
+
 dev_dependencies:
 
   # Page Route
