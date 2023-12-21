@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/app/routes/app_router.gr.dart';
 import 'package:http/http.dart' as http;
+import 'package:to_do_app/core/constants/app_colors.dart';
 import 'package:to_do_app/core/constants/config.dart';
 
 @RoutePage()
@@ -27,26 +28,26 @@ class _RegistrationViewState extends State<RegistrationView> {
         isValid = true;
       });
 
-      var reqBody = {
+      var regBody = {
         "email": emailController.text,
         "password": passwordController.text
       };
 
       var response = await http.post(Uri.parse(registration),
           headers: {"Content-Type": "application/json"},
-          body: jsonEncode(reqBody));
+          body: jsonEncode(regBody));
 
       var jsonResponse = jsonDecode(response.body);
 
       print(jsonResponse['status']);
 
-      if(jsonResponse['status']) {
+      if (jsonResponse['status']) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("Registration Successful"),
           ),
         );
-        context.router.push(const HomeViewRoute());
+        context.router.push(const SignInViewRoute());
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -56,7 +57,7 @@ class _RegistrationViewState extends State<RegistrationView> {
         print("Something went wrong");
       }
       // print("Post Registration: $response");
-      // print("Post Request: $reqBody");
+      // print("Post Request: $regBody");
     } else {
       setState(() {
         isValid = false;
@@ -114,6 +115,26 @@ class _RegistrationViewState extends State<RegistrationView> {
               controller: passwordController,
               obscureText: !isPasswordVisible,
             ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(L10n.of(context)!.alreadyHaveAccount),
+                const SizedBox(width: 10),
+                InkWell(
+                  onTap: () {
+                    context.router.push(const SignInViewRoute());
+                  },
+                  child: Text(
+                    L10n.of(context)!.signIn,
+                    style: const TextStyle(
+                      color: AppColors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 60),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -123,7 +144,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                 onPressed: () {
                   isButtonEnabled();
                 },
-                child: Text(L10n.of(context)!.regAndSignIn,
+                child: Text(L10n.of(context)!.register,
                     style: const TextStyle(color: Colors.white))),
           ],
         ),
