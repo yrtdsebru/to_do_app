@@ -6,7 +6,7 @@ import 'package:to_do_app/starter.dart';
 import 'package:to_do_app/app/routes/app_router.dart';
 
 class ToDoApp extends StatefulWidget {
-  const ToDoApp({Key? key}) : super(key: key);
+  const ToDoApp({super.key});
 
   @override
   State<ToDoApp> createState() => _ToDoAppState();
