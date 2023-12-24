@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/app/routes/app_router.gr.dart';
 import 'package:http/http.dart' as http;
+import 'package:to_do_app/core/theme/theme.dart';
 import 'package:to_do_app/core/constants/app_colors.dart';
 import 'package:to_do_app/core/constants/config.dart';
 
@@ -73,7 +74,7 @@ class _RegistrationViewState extends State<RegistrationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white30,
+      backgroundColor: Themes.bgColor,
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -138,14 +139,14 @@ class _RegistrationViewState extends State<RegistrationView> {
             const SizedBox(height: 60),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
+                  backgroundColor: AppColors.blueGrey,
                   minimumSize: const Size(300, 50),
                 ),
                 onPressed: () {
                   isButtonEnabled();
                 },
                 child: Text(L10n.of(context)!.register,
-                    style: const TextStyle(color: Colors.white))),
+                    style: TextStyle(color: Themes.textColor))),
           ],
         ),
       ),

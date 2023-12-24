@@ -7,6 +7,7 @@ import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/app/routes/app_router.gr.dart';
 import 'package:http/http.dart' as http;
 import 'package:to_do_app/app/views/view_signin/dashboard.dart';
+import 'package:to_do_app/core/theme/theme.dart';
 import 'package:to_do_app/core/constants/app_colors.dart';
 import 'package:to_do_app/core/constants/config.dart';
 import 'package:to_do_app/starter.dart';
@@ -54,14 +55,14 @@ class _SignInViewState extends State<SignInView> {
             content: Text("Login Successful"),
           ),
         );
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Dashboard(
-                    token:
-                        myToken))); //tokeni dashboard'a gonderdik, gormek amacli
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context) => Dashboard(
+        //             token:
+        //                 myToken))); //tokeni dashboard'a gonderdik, gormek amacli
 
-        //context.router.push(const HomeViewRoute());
+        context.router.push(const HomeViewRoute());
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -157,7 +158,7 @@ class _SignInViewState extends State<SignInView> {
                   loginUser();
                 },
                 child: Text(L10n.of(context)!.signIn,
-                    style: const TextStyle(color: Colors.white))),
+                    style: TextStyle(color: Themes.textColor))),
           ],
         ),
       ),

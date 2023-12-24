@@ -9,7 +9,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:to_do_app/app/l10n/app_localizations.dart';
 import 'package:to_do_app/app/routes/app_router.gr.dart';
 import 'package:to_do_app/app/views/view_signin/dashboard.dart';
-import 'package:to_do_app/core/constants/app_colors.dart';
+import 'package:to_do_app/core/theme/theme.dart';
 
 @RoutePage()
 class SplashView extends StatelessWidget {
@@ -27,22 +27,22 @@ class SplashView extends StatelessWidget {
     });
 
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: Themes.splashColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               L10n.of(context)!.splashLogo,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.w900,
-                color: AppColors.white,
+                color: Themes.bgTextColor,
               ),
             ),
             const SizedBox(height: 30),
-            const CircularProgressIndicator(
-              color: AppColors.white,
+            CircularProgressIndicator(
+              color: Themes.bgTextColor
             ),
           ],
         ),
