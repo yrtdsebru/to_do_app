@@ -7,6 +7,7 @@
     "no": "Hayır",
     "next": "İler",
     "ok": "Tamam",
+    "done": "Bitti",
     "cancel": "İptal",
     "add": "Ekle",
     "update": "Güncelle",
@@ -20,5 +21,9 @@
     "alreadyHaveAccount": "Zaten hesabınız var mı?",
     "dontHaveAccount": "Hesabınız yok mu?",
     "register":"Kayıt Ol",
-    "signIn": "Giriş Yap"
+    "signIn": "Giriş Yap",
+    "search": "Ara...",
+    "allTasks": "Tüm Yapılacaklar",
+    "title": "Başlık",
+    "description": "Açıklama"
 }

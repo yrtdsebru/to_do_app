@@ -29,6 +29,9 @@ class L10nEn extends L10n {
   String get ok => 'Okey';
 
   @override
+  String get done => 'Done';
+
+  @override
   String get cancel => 'Cancel';
 
   @override
@@ -69,4 +72,16 @@ class L10nEn extends L10n {
 
   @override
   String get signIn => 'Sign In';
+
+  @override
+  String get search => 'Search...';
+
+  @override
+  String get allTasks => 'All Tasks';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get description => 'Description';
 }

@@ -29,6 +29,9 @@ class L10nTr extends L10n {
   String get ok => 'Tamam';
 
   @override
+  String get done => 'Bitti';
+
+  @override
   String get cancel => 'İptal';
 
   @override
@@ -69,4 +72,16 @@ class L10nTr extends L10n {
 
   @override
   String get signIn => 'Giriş Yap';
+
+  @override
+  String get search => 'Ara...';
+
+  @override
+  String get allTasks => 'Tüm Yapılacaklar';
+
+  @override
+  String get title => 'Başlık';
+
+  @override
+  String get description => 'Açıklama';
 }
