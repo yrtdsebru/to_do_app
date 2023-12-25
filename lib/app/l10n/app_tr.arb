@@ -5,7 +5,7 @@
     "langTr": "Türkçe",
     "yes": "Evet",
     "no": "Hayır",
-    "next": "İler",
+    "next": "İleri",
     "ok": "Tamam",
     "done": "Bitti",
     "cancel": "İptal",
@@ -22,8 +22,11 @@
     "dontHaveAccount": "Hesabınız yok mu?",
     "register":"Kayıt Ol",
     "signIn": "Giriş Yap",
+    "signOut": "Çıkış Yap",
     "search": "Ara...",
     "allTasks": "Tüm Yapılacaklar",
     "title": "Başlık",
-    "description": "Açıklama"
+    "description": "Açıklama",
+    "darkMode": "Karanlık Mod",
+    "lightMode": "Aydınlık Mod"
 }

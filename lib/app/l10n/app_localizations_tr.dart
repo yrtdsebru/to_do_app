@@ -23,7 +23,7 @@ class L10nTr extends L10n {
   String get no => 'Hayır';
 
   @override
-  String get next => 'İler';
+  String get next => 'İleri';
 
   @override
   String get ok => 'Tamam';
@@ -74,6 +74,9 @@ class L10nTr extends L10n {
   String get signIn => 'Giriş Yap';
 
   @override
+  String get signOut => 'Çıkış Yap';
+
+  @override
   String get search => 'Ara...';
 
   @override
@@ -84,4 +87,10 @@ class L10nTr extends L10n {
 
   @override
   String get description => 'Açıklama';
+
+  @override
+  String get darkMode => 'Karanlık Mod';
+
+  @override
+  String get lightMode => 'Aydınlık Mod';
 }

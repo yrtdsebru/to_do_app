@@ -74,6 +74,9 @@ class L10nEn extends L10n {
   String get signIn => 'Sign In';
 
   @override
+  String get signOut => 'Sign Out';
+
+  @override
   String get search => 'Search...';
 
   @override
@@ -84,4 +87,10 @@ class L10nEn extends L10n {
 
   @override
   String get description => 'Description';
+
+  @override
+  String get darkMode => 'Dark Mode';
+
+  @override
+  String get lightMode => 'Light Mode';
 }

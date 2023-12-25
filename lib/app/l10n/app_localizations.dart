@@ -231,6 +231,12 @@ abstract class L10n {
   /// **'Sign In'**
   String get signIn;
 
+  /// No description provided for @signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get signOut;
+
   /// No description provided for @search.
   ///
   /// In en, this message translates to:
@@ -254,6 +260,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Description'**
   String get description;
+
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get darkMode;
+
+  /// No description provided for @lightMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Mode'**
+  String get lightMode;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

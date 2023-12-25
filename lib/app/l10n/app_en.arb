@@ -22,8 +22,11 @@
     "dontHaveAccount": "Don't have an account?",
     "register":"Register",
     "signIn": "Sign In",
+    "signOut": "Sign Out",
     "search": "Search...",
     "allTasks": "All Tasks",
     "title": "Title",
-    "description": "Description"
+    "description": "Description",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
 }
