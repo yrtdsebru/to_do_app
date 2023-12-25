@@ -30,6 +30,7 @@ class _ToDoAppState extends State<ToDoApp> {
               theme: ThemeData(
                 brightness: isDark ? Brightness.dark : Brightness.light,
               ),
+              locale: isTr ? const Locale('tr') : const Locale('en'),
               routerConfig: _appRouter.config()),
         );
       },
