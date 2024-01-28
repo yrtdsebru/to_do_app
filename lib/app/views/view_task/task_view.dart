@@ -6,9 +6,11 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:to_do_app/app/l10n/app_localizations.dart';
+import 'package:to_do_app/app/routes/app_router.gr.dart';
 import 'package:to_do_app/core/theme/theme.dart';
 import 'package:http/http.dart' as http;
 import 'package:to_do_app/core/constants/config.dart';
+import 'package:to_do_app/core/widgets/toast_message_widget.dart';
 
 @RoutePage()
 class TaskView extends StatefulWidget {
@@ -23,7 +25,6 @@ class _TaskViewState extends State<TaskView> {
   final TextEditingController title = TextEditingController();
   final TextEditingController description = TextEditingController();
 
-
   String currentDateTime =
       DateFormat('dd MMMM yyyy HH:mm').format(DateTime.now());
 
@@ -36,17 +37,25 @@ class _TaskViewState extends State<TaskView> {
   void openBox() async {
     var box = await Hive.openBox('settings');
     var myToken = box.get('token');
-    Map<String, dynamic> JwtDecodedToken = JwtDecoder.decode(myToken); // tokeni decode etti
-    userId = JwtDecodedToken['_id']; // tokendan userId'yi aldik, userController'da token içeriği var, login yaparken tokeni olusturduk ya (tokenData = { _id: user._id, email: user.email };)
-    setState(() {});
+    if (myToken != null && myToken.isNotEmpty) {
+      Map<String, dynamic> JwtDecodedToken =
+          JwtDecoder.decode(myToken); // tokeni decode etti
+      userId = JwtDecodedToken[
+          '_id']; // tokendan userId'yi aldik, userController'da token içeriği var, login yaparken tokeni olusturduk ya (tokenData = { _id: user._id, email: user.email };)
+      setState(() {});
+    } else {
+      context.router.popAndPush(const SignInViewRoute());
+      //showToast(context, "Somthing went wrong!\nPlease again login!");
+    }
   }
-  
+
   void addTask() async {
     if (title.text.isNotEmpty || description.text.isNotEmpty) {
       print("Title: ${title.text}");
       print("Description: ${description.text}");
 
-      var taskBody = {  // to do controllerda const { userId,title, desc } = req.body;
+      var taskBody = {
+        // to do controllerda const { userId,title, desc } = req.body;
         "userId": userId,
         "title": title.text,
         "desc": description.text
@@ -64,12 +73,12 @@ class _TaskViewState extends State<TaskView> {
       if (jsonResponse['status']) {
         title.clear();
         description.clear();
-        context.router.pop();
+        context.router.push(const HomeViewRoute());
       } else {
-        print("Something went wrong");
+        //showToast(context, "Something went wrong!");
       }
     } else {
-      print("Please fill fields");
+      //showToast(context, "Please fill fields!");
     }
   }
 
@@ -90,7 +99,10 @@ class _TaskViewState extends State<TaskView> {
             ),
             TextButton(
               onPressed: () {
-                addTask();
+                if(title.text.isNotEmpty || description.text.isNotEmpty)
+                  addTask();
+                else
+                  context.router.push(const HomeViewRoute());
               },
               child: Text(L10n.of(context)!.done,
                   style: TextStyle(
@@ -127,6 +139,7 @@ class _TaskViewState extends State<TaskView> {
                 ),
                 TextField(
                   controller: description,
+                  maxLines: 10,
                   decoration: InputDecoration(
                     hintText: L10n.of(context)!.description,
                     hintStyle:
