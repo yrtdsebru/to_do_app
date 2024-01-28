@@ -28,48 +28,56 @@ class _SignInViewState extends State<SignInView> {
 
   void loginUser() async {
     if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
-      setState(() {
-        isValid = true;
-      });
+      try {
+        setState(() {
+          isValid = true;
+        });
 
-      var reqBody = {
-        "email": emailController.text,
-        "password": passwordController.text
-      };
+        var reqBody = {
+          "email": emailController.text,
+          "password": passwordController.text
+        };
 
-      var response = await http.post(Uri.parse(login),
-          headers: {"Content-Type": "application/json"},
-          body: jsonEncode(reqBody));
+        var response = await http.post(Uri.parse(login),
+            headers: {"Content-Type": "application/json"},
+            body: jsonEncode(reqBody));
 
-      var jsonResponse = jsonDecode(response.body);
+        var jsonResponse = jsonDecode(response.body);
 
-      print(jsonResponse['status']);
+        print(jsonResponse['status']);
 
-      if (jsonResponse['status']) {
-        var myToken = jsonResponse['token']; //tokeni aldik
-        var box = await Hive.openBox(SETTINGS_BOX);
-        box.put("token", myToken); //tokeni Hive'a kaydettik
+        if (jsonResponse['status']) {
+          var myToken = jsonResponse['token']; //tokeni aldik
+          var box = await Hive.openBox(SETTINGS_BOX);
+          box.put("token", myToken); //tokeni Hive'a kaydettik
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Login Successful"),
-          ),
-        );
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) => Dashboard(
-        //             token:
-        //                 myToken))); //tokeni dashboard'a gonderdik, gormek amacli
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Login Successful"),
+            ),
+          );
+          // Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //         builder: (context) => Dashboard(
+          //             token:
+          //                 myToken))); //tokeni dashboard'a gonderdik, gormek amacli
 
-        context.router.push(const HomeViewRoute());
-      } else {
+          context.router.push(const HomeViewRoute());
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Please control your email and password!"),
+            ),
+          );
+        }
+      } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("Login Failed"),
           ),
         );
-        print("Something went wrong");
+        print("Something went wrong $e");
       }
     } else {
       setState(() {

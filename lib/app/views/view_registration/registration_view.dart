@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:to_do_app/core/theme/theme.dart';
 import 'package:to_do_app/core/constants/app_colors.dart';
 import 'package:to_do_app/core/constants/config.dart';
+import 'package:to_do_app/core/widgets/toast_message_widget.dart';
 
 @RoutePage()
 class RegistrationView extends StatefulWidget {
@@ -43,19 +44,11 @@ class _RegistrationViewState extends State<RegistrationView> {
       print(jsonResponse['status']);
 
       if (jsonResponse['status']) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Registration Successful"),
-          ),
-        );
+        //showToast(context, "Registration Successful!");
+
         context.router.push(const SignInViewRoute());
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Registration Failed"),
-          ),
-        );
-        print("Something went wrong");
+        //showToast(context, "Registration Failed!");
       }
       // print("Post Registration: $response");
       // print("Post Request: $regBody");
@@ -63,11 +56,7 @@ class _RegistrationViewState extends State<RegistrationView> {
       setState(() {
         isValid = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Please enter email and password"),
-        ),
-      );
+      //showToast(context, "Please enter email and password!");
     }
   }
 
