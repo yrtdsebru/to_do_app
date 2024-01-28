@@ -31,8 +31,8 @@ class _RegistrationViewState extends State<RegistrationView> {
       });
 
       var regBody = {
-        "email": emailController.text,
-        "password": passwordController.text
+        "email": emailController.text.trim(),
+        "password": passwordController.text.trim()
       };
 
       var response = await http.post(Uri.parse(registration),
