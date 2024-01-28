@@ -29,6 +29,7 @@ class _ToDoAppState extends State<ToDoApp> {
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 brightness: isDark ? Brightness.dark : Brightness.light,
+                fontFamily: 'Montserrat',
               ),
               locale: isTr ? const Locale('tr') : const Locale('en'),
               routerConfig: _appRouter.config()),
